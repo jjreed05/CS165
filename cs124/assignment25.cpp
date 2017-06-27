@@ -1,0 +1,84 @@
+/***********************************************************************
+* Program:
+*    Assignment 25, Loop Design         (e.g. Assignment 01, Hello World)  
+*    Brother Grimmett, CS124
+* Author:
+*    Jason Reed
+* Summary: 
+*    Enter a brief description of your program here!  Please note that if
+*    you do not take the time to fill out this block, YOU WILL LOSE POINTS.
+*    Before you begin working, estimate the time you think it will
+*    take you to do the assignment and include it in this header block.
+*    Before you submit the assignment include the actual time it took.
+*
+*    Estimated:  0.0 hrs   
+*    Actual:     0.0 hrs
+*      Please describe briefly what was the most difficult part.
+************************************************************************/
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int getNumDays()
+{
+   int numDays;
+   cout << "Number of days: ";
+   cin >> numDays;
+
+   return numDays;
+}
+
+int getOffset()
+{
+   int offset;
+   cout << "Offset: ";
+   cin >> offset;
+   
+   return offset;
+}
+
+void displayTable(int numDays, int offset)
+{
+   int days;
+
+   cout << "Su  Mo  Tu  We  Th  Fr  Sa" << endl;
+
+   if (offset == 0)  // Mon
+      cout << setw(2)  << " ";
+   else if (offset == 1)  // Tues
+      cout << setw(6)  << " ";
+   else if (offset == 2)  // Wed
+      cout << setw(10) << " ";
+   else if (offset == 3)  // Thurs
+      cout << setw(14) << " ";
+   else if (offset == 4)  // Fri
+      cout << setw(18) << " ";
+   else if (offset == 5)  // Sat
+      cout << setw(22) << " ";
+   else (offset == 6);  // Sun
+
+   for (days = 0; days < numDays; days++)
+   {
+      if ((days + offset) % 7  == 0 && days != 0 )
+         cout  << "\n";
+      cout << "  " << setw(2) << days;
+   }
+
+   cout << endl;
+   return;
+}   
+/**********************************************************************
+ * Add text here to describe what the function "main" does. Also don't forget
+ * to fill this out with meaningful text or YOU WILL LOSE POINTS.
+ ***********************************************************************/
+int main()
+{
+
+   int numDays = getNumDays();
+   int offset = getOffset();
+
+   displayTable(numDays, offset);
+
+   return 0;
+}
